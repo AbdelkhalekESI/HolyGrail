@@ -13,33 +13,33 @@ Because of incorrect rendering of content by different browsers, a method that w
 
 # Known workarounds
 
-Tables
+# Tables : 
 Before the widespread implementation of CSS, designers commonly used tables to lay out pages. Sometimes they achieved their desired layout by nesting several tables inside each other. Although placing the columns inside table cells easily achieves the desired visual appearance, using a table is semantically incorrect, although the "role" WAI-ARIA HTML attribute can be set to "presentation" to regain semantic context. There is also no way to control the order of the columns in the page source.
 
-Divisions with display:table
+# Divisions with display:table
 It is possible to make columns equal height using the CSS display property. This requires nested container divisions that are set to display: table and display: table-row, and columns that are set to display: table-cell. This is semantically correct, as only the display is affected. However, this method lacks the ability to control the order of the source code. It will also not work with some older, unsupported browsers, such as Internet Explorer 7.
 
-Faux columns
+# Faux columns
 This method uses a background image which provides the background colors and vertical borders of all three columns.The content of each column is enclosed in a division, and positioned over its background using techniques such as floats, negative margins, and relative positioning. The background is normally only a few pixels high, and is made to cover the page using the "repeat-y" attribute. This works fine for fixed-width layouts, and can be adapted for percentage-based variable-width pages, but cannot be used for fluid center pages.
 
-JavaScript
+# JavaScript
 In this method, after the page is loaded, a script measures the height of each of the columns, and sets the height of each column to the greater value. This will not work in browsers that do not support JavaScript, or have JavaScript disabled.
 
-Fixed or absolute positioning
+# Fixed or absolute positioning
 In this method, the corners of the column divisions are locked in a specific place on the page. This may be acceptable or even desired, but does not solve the holy grail problem as it is a significantly different layout. The consequences of this method may include having content appearing below the columns (such as a footer) fixed at the screen bottom, blank space under the column content, and requiring scrollbars for each column to view all the content.
 
-Nested divisions
+# Nested divisions
 A division with its background will grow in height to contain its content. This behavior is used to solve the problem by creating three divisions nested inside each other which provide the three backgrounds. These divisions are placed in their proper location using positioning techniques, and the three content divisions are placed inside the innermost background division, positioned over their respective backgrounds. The background divisions then become as tall as the tallest content division. The drawbacks of this method include the three non-semantic divisions, and the difficulty of positioning the elements of this complex layout.
 
-Border color
+# Border color
 A simpler version of the nested division method entails using a single container division. The background properties of this division provides the background of the center column, and the left and right borders, which are given widths equal to the side column widths, provide the background colors of the sidebars. The content of each column is positioned over its background. This method still uses one non-semantic division, and makes it difficult to apply background images and borders to the sidebars.
 
-Bottom padding
+# Bottom padding
 By placing a large amount of padding at the bottom of the column container, the background will extend far below the column content. A corresponding negative margin will bring content below the columns back into its proper position. Positioning is simple in this method, as the container of a column's content also contains its background. A padding value of 32767px is the largest that will be recognized by all modern browsers. If the difference in column heights is greater than this, the background of the shorter column will not fully fill the column.
 
 # Current solution
 
-CSS3 Flexible Box Layout (Flexbox)
+# CSS3 Flexible Box Layout (Flexbox)
 
 The World Wide Web Consortium (W3C) has approached the layout issue through various proposals. The most mature proposal is the Flexible Box Module (A.K.A. Flexbox), which is in Candidate Recommendation status as of October 2017 . Setting an element's display property to "flex" or "inline-flex" causes the element to become a new type of container (similar to a block or inline block, respectively), with new methods of positioning child objects. Content can flow in any direction, and be displayed in any order. The W3C proposal contains an example which achieves the holy grail column layout using four simple CSS rules, and makes the layout responsive with a simple media query rule. The module can also be used to address many other layout issues.
 
