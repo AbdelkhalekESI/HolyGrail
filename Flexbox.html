@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    
+    @import url('https://fonts.googleapis.com/css?family=Raleway:200');
+    body { 
+display : flex;  
+  flex-direction : column ; 
+  margin : 0 ;
+  min-height : 100vh ; 
+  font-family: Helvetica;
+  font-weight: bold;
+  background: #2c3e50;
+  text-align: center ;
+
+}
+a { 
+     text-decoration : none ; 
+     color: black ; 
+     padding: 10px ;
+   }
+
+   footer {
+    padding: 30px !important ; 
+
+   }
+footer , header { 
+  background: #1abc9c;
+   flex-basis : 100px ;
+   border-radius: 7px ;
+
+margin: 4px ; 
+padding: 5px ;
+
+}
+
+.container { 
+display : flex ; 
+  flex-direction : row ; 
+  flex-grow: 1;
+  flex-basis: 800px;
+}
+
+.article { 
+  background : white ;  
+  flex: 4 0 60%;
+  min-height : 100vh ; 
+  padding: 30px !important ; 
+}
+
+.nav { 
+  background: #95a5a6;
+  order : -1 ; 
+  flex: 1 1 20%;
+  padding: 30px !important ; 
+
+}
+.adds {   
+    flex: 1 1 20%;
+  background: #3498db;
+  padding: 30px !important ; 
+
+
+
+}
+
+@media all and (max-width : 640px) { 
+  .container { 
+  flex-direction : column ; 
+  }
+  .nav { 
+    order : 0 ;
+  }
+}
+.container > * { 
+margin: 4px ; 
+padding: 5px ;
+border-radius: 7px ;
+
+}
+header {
+  display: flex ; 
+  justify-content: space-between ; 
+  align-items: center ;
+}
+
+     </style>
+    <script src="main.js"></script>
+</head>
+
+
+<body>
+  <header>
+    <a href="">Nav Left</a>
+    <a href="">Nav Right</a>
+  </header>
+   <div class="container">
+    <div class="article">MAIN CONTENT</div>
+    <div class="nav">LEFT SIDE</div>
+    <div class="adds">RIGHT SIDE </div>
+   </div>
+  <footer>FOOTER</footer>
+</body>
+</html>
